@@ -5,39 +5,40 @@ import './assets/css/bootstrap.min.css';
 import './assets/css/bootstrap-theme.min.css';
 import './assets/css/custom.css';
 
+import Home from './views/Home.js';
 import NoticeList from './views/NoticeList.js';
 import NoticeDetail from './views/NoticeDetail.js';
 
 class App extends Component {
   render() {
     return (
-      <div className="wrapper">
+        <Router>
+            <div className="wrapper">
 
-        {/* Sidebar */}
-        <nav id="sidebar">
-          
-          <h3>Bootstrap Sidebar</h3>
+                {/* Sidebar */}
+                <nav id="sidebar">
+                
+                <h3>Bootstrap Sidebar</h3>
 
-          <ul>
-              <li>
-                  <a href="#">About</a>
-              </li>
-              <li>
-                  <a href="#">Portfolio</a>
-              </li>
-              <li>
-                  <a href="#">Contact</a>
-              </li>
-          </ul>
-        </nav>
+                <ul>
+                    <li>
+                        <Link to="/">메인</Link>
+                    </li>
+                    <li>
+                        <Link to="/noticeList">게시물 목록</Link>
+                    </li>
+                </ul>
+                </nav>
 
-        {/* Page Content */}
-        <div id="content">
-            <NoticeList />
-            <NoticeDetail />
-        </div>
+                {/* Page Content */}
+                <div id="content">
+                    <Route exact path="/" component={Home} />
+                    <Route path="/noticeList" component={NoticeList} />
+                    <Route path="/noticeDetail" component={NoticeDetail} />
+                </div>
 
-    </div>  
+            </div>  
+        </Router>
     );
   }
 }
