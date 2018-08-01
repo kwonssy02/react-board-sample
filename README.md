@@ -1,3 +1,47 @@
+## Table of Contents
+- [Step 01](#Step 01)
+- [Step 02](#Step 02)
+- [Step 03](#Step 03)
+- [Step 04](#Step 04)
+- [Step 05](#Step 05)
+- [Step 06](#Step 06)
+
+## Step 01
+
+- Node.js v8.9.4 설치
+- create-react-app 설치
+- `npm install & npm start`
+
+## Step 02
+
+- App.js에 사이드바, 페이지 내용 부분 추가
+
+## Step 03
+
+- App.js에 테이블 추가
+- bootstrap css 적용
+
+## Step 04
+
+- NoticeList.js 파일 추가
+- App.js에서 페이지 분리
+
+## Step 05
+
+- Home.js 추가
+- NoticeDetail.js 추가
+- App.js에 Home, NoticeDetail 표시
+
+## Step 06
+
+- `npm install --save react-router-dom`
+- App.js에 Router 적용
+
+
+
+
+## 참고사항 (create-react-app reference)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
