@@ -1,10 +1,10 @@
-## Table of Contents
-- [Step 01](#Step 01)
-- [Step 02](#Step 02)
-- [Step 03](#Step 03)
-- [Step 04](#Step 04)
-- [Step 05](#Step 05)
-- [Step 06](#Step 06)
+## 목차
+- [Step 01](#step-01)
+- [Step 02](#step-02)
+- [Step 03](#step-03)
+- [Step 04](#step-04)
+- [Step 05](#step-05)
+- [Step 06](#step-06)
 
 ## Step 01
 
