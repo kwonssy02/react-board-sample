@@ -1,19 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import './assets/css/bootstrap.min.css';
+import './assets/css/bootstrap-theme.min.css';
+import './assets/css/custom.css';
+
+import Home from './views/Home.js';
+import NoticeList from './views/NoticeList.js';
+import NoticeDetail from './views/NoticeDetail.js';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <Router>
+            <div className="wrapper">
+
+                {/* Sidebar */}
+                <nav id="sidebar">
+                
+                <h3>Bootstrap Sidebar</h3>
+
+                <ul>
+                    <li>
+                        <Link to="/">메인</Link>
+                    </li>
+                    <li>
+                        <Link to="/noticeList">게시물 목록</Link>
+                    </li>
+                </ul>
+                </nav>
+
+                {/* Page Content */}
+                <div id="content">
+                    <Route exact path="/" component={Home} />
+                    <Route path="/noticeList" component={NoticeList} />
+                    <Route path="/noticeDetail" component={NoticeDetail} />
+                </div>
+
+            </div>  
+        </Router>
     );
   }
 }
