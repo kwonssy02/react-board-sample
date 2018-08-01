@@ -5,6 +5,7 @@ import './assets/css/bootstrap-theme.min.css';
 import './assets/css/custom.css';
 
 import NoticeList from './views/NoticeList.js';
+import NoticeDetail from './views/NoticeDetail.js';
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
         {/* Page Content */}
         <div id="content">
             <NoticeList />
+            <NoticeDetail />
         </div>
 
     </div>  
