@@ -26,23 +26,27 @@ npm install & npm start
 ## Step 02
 
 - App.js 변경
--- 사이드바, 페이지 내용 부분 추가
+  - Sidebar 추가
+  - Content 추가
 
 ## Step 03
 
-- App.js에 테이블 추가
-- bootstrap css 적용
+- App.js 변경
+  - 게시물 목록 Table 추가
+  - bootstrap css 적용
 
 ## Step 04
 
-- NoticeList.js 파일 추가
-- App.js에서 페이지 분리
+- NoticeList.js 추가
+- App.js 변경
+  - 게시물 목록 페이지 분리
 
 ## Step 05
 
 - Home.js 추가
 - NoticeDetail.js 추가
-- App.js에 Home, NoticeDetail 표시
+- App.js 변경
+  - Home, NoticeDetail 표시
 
 ## Step 06
 
