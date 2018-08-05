@@ -10,7 +10,17 @@
 
 - Node.js v8.9.4 설치
 - create-react-app 설치
-- `npm install & npm start`
+```sh
+npm install create-react-app
+```
+- 프로젝트 생성
+```sh
+create-react-app react-board-sample
+```
+- 프로젝트 구동
+```sh
+npm install & npm start
+```
 
 ## Step 02
 
