@@ -25,7 +25,8 @@ npm install & npm start
 
 ## Step 02
 
-- App.js에 사이드바, 페이지 내용 부분 추가
+- App.js 변경
+-- 사이드바, 페이지 내용 부분 추가
 
 ## Step 03
 
