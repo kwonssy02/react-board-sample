@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
   render() {
@@ -8,10 +6,8 @@ class App extends Component {
       <div className="wrapper">
 
         {/* 사이드바 */}
-        <nav id="sidebar">
-          
+        <nav id="sidebar">          
           <h3>Bootstrap Sidebar</h3>
-
           <ul>
               <li>
                   <a href="#">About</a>
