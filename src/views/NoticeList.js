@@ -1,7 +1,33 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NoticeList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            noticeListData: [
+                {
+                    noticeId: 1,
+                    noticeTitle: '안녕하세요',
+                    noticeAuthor: '권혁찬'
+                },
+                {
+                    noticeId: 2,
+                    noticeTitle: '반갑습니당',
+                    noticeAuthor: '여현승'
+                },
+                {
+                    noticeId: 3,
+                    noticeTitle: '와 폭염',
+                    noticeAuthor: '전유민'
+                }
+            ]
+        };
+    }
+
     render() {
+        const { noticeListData } = this.state;
         return (
             <div>
                 <h3>게시물 목록</h3>
@@ -14,21 +40,15 @@ class NoticeList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>안녕하세요</td>
-                            <td>권혁찬</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>반갑습니당</td>
-                            <td>여현승</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>와 폭염</td>
-                            <td>전유민</td>
-                        </tr>
+                        {noticeListData.map((notice) => {
+                            return (
+                                <tr>
+                                    <td>{notice.noticeId}</td>
+                                    <td><Link to={'/noticeDetail/' + notice.noticeId}>{notice.noticeTitle}</Link></td>
+                                    <td>{notice.noticeAuthor}</td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>
