@@ -1,5 +1,6 @@
 ### react-board-sample
 react를 이용해 샘플 게시판 웹페이지를 개발합니다.
+개발 진행에 따른 소스코드는 branch에서 확인 가능합니다.
 
 ## 목차
 - [Step 01](#step-01)
