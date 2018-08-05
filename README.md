@@ -19,6 +19,7 @@ create-react-app react-board-sample
 ```
 - 프로젝트 구동
 ```sh
+cd react-board-sample
 npm install & npm start
 ```
 
