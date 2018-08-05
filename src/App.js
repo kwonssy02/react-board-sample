@@ -16,18 +16,16 @@ class App extends Component {
             <div className="wrapper">
 
                 {/* Sidebar */}
-                <nav id="sidebar">
-                
-                <h3>Bootstrap Sidebar</h3>
-
-                <ul>
-                    <li>
-                        <Link to="/">메인</Link>
-                    </li>
-                    <li>
-                        <Link to="/noticeList">게시물 목록</Link>
-                    </li>
-                </ul>
+                <nav id="sidebar">                
+                    <h3>Bootstrap Sidebar</h3>
+                    <ul>
+                        <li>
+                            <Link to="/">메인</Link>
+                        </li>
+                        <li>
+                            <Link to="/noticeList">게시물 목록</Link>
+                        </li>
+                    </ul>
                 </nav>
 
                 {/* Page Content */}
@@ -36,7 +34,6 @@ class App extends Component {
                     <Route path="/noticeList" component={NoticeList} />
                     <Route path="/noticeDetail/:noticeId" component={NoticeDetail} />
                 </div>
-
             </div>  
         </Router>
     );
