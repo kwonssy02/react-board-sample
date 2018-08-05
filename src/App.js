@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './assets/css/bootstrap.min.css';
 import './assets/css/bootstrap-theme.min.css';
 import './assets/css/custom.css';
@@ -15,9 +14,7 @@ class App extends Component {
 
         {/* Sidebar */}
         <nav id="sidebar">
-          
           <h3>Bootstrap Sidebar</h3>
-
           <ul>
               <li>
                   <a href="#">메인</a>
@@ -34,7 +31,6 @@ class App extends Component {
             <NoticeList />
             <NoticeDetail />
         </div>
-
     </div>  
     );
   }
