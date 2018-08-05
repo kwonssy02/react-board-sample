@@ -58,4 +58,4 @@ npm install --save react-router-dom
   - Router 적용 (https://reacttraining.com/react-router/web/example/basic)
 
 ## References
-- [create-react-app](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#available-scripts)
+- [create-react-app](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md)
