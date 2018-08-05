@@ -63,5 +63,14 @@ npm install --save react-router-dom
 - App.js 변경
   - Router 적용 (https://reacttraining.com/react-router/web/example/basic)
 
+## Step 07
+Class Component 생성자를, state를 추가하고 데이터를 렌더링합니다.
+
+- NoticeList.js 변경
+  - constructor 추가
+  - state 추가
+  - tr 렌더링 추가
+
+
 ## References
 - [create-react-app](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md)
