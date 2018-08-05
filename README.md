@@ -35,7 +35,7 @@
 ## Step 06
 
 - `npm install --save react-router-dom`
-- App.js에 Router 적용
+- App.js에 Router 적용 (https://reacttraining.com/react-router/web/example/basic)
 
 
 
