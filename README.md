@@ -7,7 +7,7 @@
 - [Step 06](#step-06)
 
 ## Step 01
-
+### 환경설치
 - Node.js v8.9.4 설치
 - create-react-app 설치
 ```sh
@@ -24,19 +24,18 @@ npm install & npm start
 ```
 
 ## Step 02
-
+### 기본 템플릿 구성
 - App.js 변경
   - Sidebar 추가
   - Content 추가
 
 ## Step 03
-
+### 테이블 추가 및 디자인 변경
 - App.js 변경
   - 게시물 목록 Table 추가
   - bootstrap css 적용
 
 ## Step 04
-
 - NoticeList.js 추가
 - App.js 변경
   - 게시물 목록 페이지 분리
