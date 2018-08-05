@@ -1,3 +1,6 @@
+### react-board-sample
+react를 이용해 샘플 게시판 웹페이지를 개발합니다.
+
 ## 목차
 - [Step 01](#step-01)
 - [Step 02](#step-02)
