@@ -73,4 +73,6 @@ Class Component 생성자를, state를 추가하고 데이터를 렌더링합니
 
 
 ## References
+- [react docs](https://reactjs.org/docs/getting-started.html)
 - [create-react-app](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md)
+- [react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
