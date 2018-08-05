@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import './assets/css/bootstrap.min.css';
 import './assets/css/bootstrap-theme.min.css';
 import './assets/css/custom.css';
@@ -12,9 +10,7 @@ class App extends Component {
 
         {/* Sidebar */}
         <nav id="sidebar">
-          
           <h3>Bootstrap Sidebar</h3>
-
           <ul>
               <li>
                   <a href="#">About</a>
@@ -58,7 +54,6 @@ class App extends Component {
               </tbody>
             </table>
         </div>
-
     </div>  
     );
   }
