@@ -136,3 +136,15 @@ body {
         width: calc(100% - var(--sidebar-width));
     }
 }
+
+/* ---------------------------------------------------
+    COMMON
+----------------------------------------------------- */
+
+a.homeButton {
+    color: #fff !important
+}
+
+a.homeButton:hover {
+    color: #fff !important
+}
