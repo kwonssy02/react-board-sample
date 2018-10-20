@@ -1,0 +1,138 @@
+:root {
+    --header-height:57px;
+    --sidebar-width:220px;
+    --footer-height:57px;
+}
+
+.footer {
+    border-top: 1px solid #e1e4e8;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    background: #fff;
+    height: var(--footer-height);
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+}
+
+/*
+    DEMO STYLE
+*/
+
+body {
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+    background: #F0F0F0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #2F3E4C;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: calc(-1 * var(--sidebar-width));
+}
+
+#sidebar a.menu {
+    color: #E9ECEF !important;
+}
+
+#sidebar a.menu:hover {
+    background: #273440 !important;
+}
+
+#sidebar a.submenu {
+    color: #CED4DA !important;
+    background: #2a3948 !important;
+}
+
+#sidebar a.submenu:hover {
+    color: #E9ECEF !important;
+    background: #273440 !important;
+}
+
+/* ---------------------------------------------------
+    HEADER STYLE
+----------------------------------------------------- */
+
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - var(--sidebar-width));
+    transition: all 0.3s;
+    opacity: 1;
+    z-index: 99;
+    justify-content: left;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+#header.active {
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: calc(100% - var(--sidebar-width));
+    min-height: calc(100vh - var(--header-height));
+    transition: all 0.3s;
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+    INNER CONTENT STYLE
+----------------------------------------------------- */
+
+#innerContent {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #header {
+        width: 100%;
+    }
+    #header.active {
+        width: calc(100% - var(--sidebar-width));
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - var(--sidebar-width));
+    }
+}
