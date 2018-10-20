@@ -67,6 +67,10 @@ body {
     background: #273440 !important;
 }
 
+#sidebar a.active {
+    color: #E9ECEF !important;
+    background: #273440 !important;
+}
 /* ---------------------------------------------------
     HEADER STYLE
 ----------------------------------------------------- */
@@ -142,9 +146,10 @@ body {
 ----------------------------------------------------- */
 
 a.homeButton {
-    color: #fff !important
+    color: #fff !important;
 }
 
 a.homeButton:hover {
-    color: #fff !important
+    color: #fff !important;
+    cursor: 'pointer';
 }

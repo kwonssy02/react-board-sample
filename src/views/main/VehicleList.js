@@ -12,15 +12,7 @@ class VehicleList extends Component {
     }
 
     componentDidMount() {
-        fetch(process.env.REACT_APP_API_URL + "/Vehicle")
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            this.setState({
-                vehicleList:data
-            })
-        });
+        
     }
 
     render() {
@@ -39,17 +31,55 @@ class VehicleList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {vehicleList.map((vehicle, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td>{vehicle.vehicleId}</td>
-                                    <td>{vehicle.vehicleType}</td>
-                                    <td>{vehicle.owner}</td>
-                                    <td>{vehicle.ownershipType}</td>
-                                    <td>{vehicle.color}</td>
-                                </tr>
-                            );
-                        })}
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vehicle Type</td>
+                            <td>Owner</td>
+                            <td>Ownership</td>
+                            <td>Color</td>
+                        </tr>
                     </tbody>
                 </Table>
             </div>
