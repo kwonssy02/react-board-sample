@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Route, Link, NavLink as RRNavLink, withRouter } from "react-router-dom";
 import {
     Navbar,
@@ -16,7 +15,6 @@ import {
     DropdownMenu
 } from "reactstrap";
 import { Aperture, ChevronDown, Settings, AlignLeft } from 'react-feather';
-
 import mainRoutes from 'routes/main';
 
 class MainLayout extends Component {
@@ -25,8 +23,35 @@ class MainLayout extends Component {
     
         this.state = {
             active: false,
-            toggleButtonStyle: 'black'
+            toggleButtonStyle: 'black',
+            currentPath: '',
         };
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if(state.currentPath !== props.location.pathname) {
+            return {
+                currentPath: props.location.pathname
+            }
+        }
+    }
+
+    getCurrentPageName = (currentPath) => {
+        for(var i=0; i<mainRoutes.length; i++) {
+            const route = mainRoutes[i];
+            if(route.path === currentPath) {
+                return route.name;
+            }
+            if(route.subRoutes) {
+                for(var j=0; j<route.subRoutes.length; j++) {
+                    const subRoute = route.subRoutes[j];
+                    if(subRoute.path === currentPath) {
+                        return subRoute.name;
+                    }
+                }
+            }
+        }
+        return '';
     }
 
     toggle = () => {
@@ -48,11 +73,11 @@ class MainLayout extends Component {
     }
 
     signOut = () => {
-        this.props.history.push('/auth');
+        this.props.history.push('/auth/signIn');
     }
 
     render() {
-        const { active, toggleButtonStyle } = this.state;
+        const { active, toggleButtonStyle, currentPath } = this.state;
         return (
             <div>
                 {/* Sidebar */}
@@ -101,7 +126,9 @@ class MainLayout extends Component {
                     <NavbarBrand onClick={this.toggle} onMouseEnter={this.onMouseEnterToggle} onMouseLeave={this.onMouseLeaveToggle} style={{cursor:'pointer'}}>
                         <AlignLeft size={25} color={toggleButtonStyle}/>
                     </NavbarBrand>
-                    <NavbarBrand >사용자</NavbarBrand>
+                    <NavbarBrand>
+                        {this.getCurrentPageName(currentPath)}
+                    </NavbarBrand>
                     <Nav className="ml-auto">
                         <UncontrolledDropdown>
                             <DropdownToggle nav style={{color:'black'}}>

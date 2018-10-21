@@ -6,12 +6,14 @@ import AuthLayout from 'layouts/auth/AuthLayout';
 import MainLayout from 'layouts/main/MainLayout';
 
 class App extends Component {
-    
     render() {    
         return (
             <Router>
                 <div>
-                    {/* <Redirect from="/" to="/main/home"/> */}
+                    {/* {this.props.location.pathname === '/' ?
+                        <Redirect from="/" to="/auth/signIn"/>
+                        : null
+                    } */}
                     <Route path="/auth" component={AuthLayout} />
                     <Route path="/main" component={MainLayout} />
                 </div>  
