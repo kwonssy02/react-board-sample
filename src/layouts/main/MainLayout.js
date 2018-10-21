@@ -82,7 +82,7 @@ class MainLayout extends Component {
             <div>
                 {/* Sidebar */}
                 <Nav id="sidebar" className={active ? 'active' : null} vertical>
-                    <NavLink to="/main/home" className={'homeButton'} tag={Link} style={{fontSize:'18px', padding:'1.15rem 1.25rem'}}>
+                    <NavLink to="/main/home" className={'homeButton'} tag={Link} style={{fontSize:'18px', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}}>
                         <Aperture size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                     </NavLink>
                     
