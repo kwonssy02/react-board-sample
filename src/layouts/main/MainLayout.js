@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, NavLink as RRNavLink, withRouter } from "react-router-dom";
+import { Route, Link, NavLink as RRNavLink, withRouter, Redirect, Switch } from "react-router-dom";
 import {
     Navbar,
     NavbarBrand,
@@ -157,23 +157,25 @@ class MainLayout extends Component {
                     <Container id="innerContent" fluid style={{padding:'1rem'}}>
                         <Row noGutters>
                             <Col style={{padding:'1rem', background:'#fff'}}>
-                                {mainRoutes.map((route, key) => {
-                                    if(route.subRoutes) {
-                                        let subRoutes = [];
-                                        route.subRoutes.map((subRoute, subKey) => {
-                                            subRoutes.push(
-                                                <Route path={subRoute.path} component={subRoute.component} key={subKey}/>    
-                                            )
-                                        });
-                                        return subRoutes;
+                                <Switch>
+                                    {mainRoutes.map((route, key) => {
+                                        if(route.subRoutes) {
+                                            let subRoutes = [];
+                                            route.subRoutes.map((subRoute, subKey) => {
+                                                subRoutes.push(
+                                                    <Route path={subRoute.path} component={subRoute.component} key={subKey}/>    
+                                                )
+                                            });
+                                            return subRoutes;
 
-                                    }else {
-                                        return (
-                                            <Route path={route.path} component={route.component} key={key}/>
-                                        )
-                                    }
-                                
-                                })}
+                                        }else {
+                                            return (
+                                                <Route path={route.path} component={route.component} key={key}/>
+                                            )
+                                        }
+                                    })}
+                                    <Redirect to="/main/home"/>
+                                </Switch>
                             </Col>
                         </Row>
                     </Container>

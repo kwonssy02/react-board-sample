@@ -130,8 +130,12 @@ a.homeButton:hover {
     cursor: 'pointer';
 }
 
+/* Loading Screen class */
 .kBribD {
     opacity: 0.7;
+    top:0;
+    bottom:0;
+    position:fixed !important;
 }
 /* ---------------------------------------------------
     Auth Header

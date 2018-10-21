@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter, NavLink as RRNavLink } from 'react-router-dom';
+import { Route, withRouter, NavLink as RRNavLink, Switch, Redirect } from 'react-router-dom';
 import {
     Navbar,
     NavbarBrand,
@@ -40,11 +40,14 @@ class AuthLayout extends Component {
                 <Container className={'authContent'} style={{minHeight:'100vh'}}>
                     <Row className={'authInnerContent'}>
                         <Col>
-                            {authRoutes.map((route, key) => {
-                                return (
-                                    <Route path={route.path} component={route.component} key={key}/>
-                                )
-                            })}
+                            <Switch>
+                                {authRoutes.map((route, key) => {
+                                    return (
+                                        <Route path={route.path} component={route.component} key={key}/>
+                                    )
+                                })}
+                                <Redirect to="/auth/signIn" />
+                            </Switch>
                         </Col>
                     </Row>
                 </Container>
