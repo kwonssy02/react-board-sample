@@ -2,6 +2,7 @@
     --header-height:57px;
     --sidebar-width:220px;
     --footer-height:57px;
+    --authHeader-height:57px;
 }
 
 .footer {
@@ -117,6 +118,45 @@ body {
 }
 
 /* ---------------------------------------------------
+    COMMON
+----------------------------------------------------- */
+
+a.homeButton {
+    color: #fff !important;
+}
+
+a.homeButton:hover {
+    color: #fff !important;
+    cursor: 'pointer';
+}
+
+/* ---------------------------------------------------
+    Auth Header
+----------------------------------------------------- */
+.authHeader {
+    justify-content: left;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.authContent {
+    min-height: calc(100vh - var(--authHeader-height)) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.authInnerContent {
+    min-width: 80%;
+    margin-top: -5rem !important;
+}
+
+.authButton {
+    background-color: #30C0AA;
+    border-color: #30C0AA;
+}
+
+
+/* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 
@@ -139,17 +179,7 @@ body {
     #content.active {
         width: calc(100% - var(--sidebar-width));
     }
-}
-
-/* ---------------------------------------------------
-    COMMON
------------------------------------------------------ */
-
-a.homeButton {
-    color: #fff !important;
-}
-
-a.homeButton:hover {
-    color: #fff !important;
-    cursor: 'pointer';
+    .authInnerContent {
+        width: 100%;
+    }
 }

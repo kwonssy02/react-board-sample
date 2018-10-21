@@ -1,5 +1,6 @@
 import Home from 'views/main/Home';
 import VehicleList from 'views/main/VehicleList';
+import { Server, Terminal, Compass } from 'react-feather';
 
 const contextPath = '/main/';
 
@@ -7,12 +8,12 @@ const mainRoutes = [
     {
         path: contextPath + 'home',
         name: '메인 페이지',
-        icon: 'IoMdShare',
+        icon: Server,
         component: Home
     },
     {
         name: '차량 조회',
-        icon: undefined,
+        icon: Terminal,
         subRoutes: [
             {
                 path: contextPath + 'vehicleList',
@@ -23,7 +24,7 @@ const mainRoutes = [
     },
     {
         name: '차량 조333회',
-        icon: undefined,
+        icon: Compass,
         subRoutes: [
             {
                 path: contextPath + 'vehicleList44442',

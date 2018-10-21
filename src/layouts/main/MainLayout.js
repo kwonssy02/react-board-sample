@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, Link, NavLink as RRNavLink } from "react-router-dom";
-import 'assets/css/main.css';
+import { Route, Link, NavLink as RRNavLink, withRouter } from "react-router-dom";
 import {
     Navbar,
     NavbarBrand,
@@ -10,9 +9,13 @@ import {
     Container,
     Row,
     Col,
-    UncontrolledCollapse
+    UncontrolledCollapse,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownItem,
+    DropdownMenu
 } from "reactstrap";
-import { IoIosMenu, IoIosFlower, IoMdShare, IoMdSpeedometer, IoMdArrowDropdown } from 'react-icons/io';
+import { Aperture, ChevronDown, Settings, AlignLeft } from 'react-feather';
 
 import mainRoutes from 'routes/main';
 
@@ -44,6 +47,10 @@ class MainLayout extends Component {
         });
     }
 
+    signOut = () => {
+        this.props.history.push('/auth');
+    }
+
     render() {
         const { active, toggleButtonStyle } = this.state;
         return (
@@ -51,16 +58,17 @@ class MainLayout extends Component {
                 {/* Sidebar */}
                 <Nav id="sidebar" className={active ? 'active' : null} vertical>
                     <NavLink to="/main/home" className={'homeButton'} tag={Link} style={{fontSize:'18px', padding:'1.15rem 1.25rem'}}>
-                        <IoIosFlower size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
+                        <Aperture size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                     </NavLink>
                     
                     {mainRoutes.map((route, key) => {
                         if(route.subRoutes) {
                             let menus = [];
                             menus.push(
-                                <NavLink to={"#"} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1.25rem'}} id={"toggle" + key} key={key}>
-                                    <IoMdSpeedometer size={23} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>{route.name}
-                                    <IoMdArrowDropdown style={{position:'absolute', right:'15px', marginTop:'5px'}}/>
+                                <NavLink to={"#"} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1rem'}} id={"toggle" + key} key={key}>
+                                    <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
+                                    {route.name}
+                                    <ChevronDown size={14} style={{position:'absolute', right:'15px', marginTop:'5px'}}/>
                                 </NavLink>
                             );
                             
@@ -77,8 +85,9 @@ class MainLayout extends Component {
                             return menus;
                         }else {
                             return (
-                                <NavLink to={route.path} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1.25rem'}} key={key}>
-                                    <IoMdShare size={23} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>{route.name}
+                                <NavLink to={route.path} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1rem'}} key={key}>
+                                    <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
+                                    {route.name}
                                 </NavLink>
                             )
 
@@ -90,9 +99,28 @@ class MainLayout extends Component {
                 {/* Header */}
                 <Navbar id="header" className={active ? 'active' : null} color="light" light expand="md">
                     <NavbarBrand onClick={this.toggle} onMouseEnter={this.onMouseEnterToggle} onMouseLeave={this.onMouseLeaveToggle} style={{cursor:'pointer'}}>
-                        <IoIosMenu size={25} color={toggleButtonStyle}/>
+                        <AlignLeft size={25} color={toggleButtonStyle}/>
                     </NavbarBrand>
                     <NavbarBrand >사용자</NavbarBrand>
+                    <Nav className="ml-auto">
+                        <UncontrolledDropdown>
+                            <DropdownToggle nav style={{color:'black'}}>
+                                <Settings size={20}/>
+                            </DropdownToggle>
+                            <DropdownMenu right>
+                                <DropdownItem>
+                                    Option 1
+                                </DropdownItem>
+                                <DropdownItem>
+                                    Option 2
+                                </DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem onClick={this.signOut}>
+                                    Sign out
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
+                    </Nav>
                 </Navbar>
 
                 {/* Content */}
@@ -137,4 +165,4 @@ class MainLayout extends Component {
     }
 }
 
-export default MainLayout;
+export default withRouter(MainLayout);
