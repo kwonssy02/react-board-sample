@@ -23,11 +23,17 @@ class App extends Component {
                                 <Route path="/main" component={MainLayout} />
                                 <Route component={NotFound} />
                             </Switch>
+                            
                             <LoadingScreen
                                 loading={false}
                                 bgColor='black'
                                 spinnerColor='#9ee5f8'
-                            /> 
+                            >
+                                {/* // ...
+                                // here loadable content
+                                // for example, async data
+                                //<div>Loadable content</div> */}
+                            </LoadingScreen> 
                         </div>  
                 </ScrollToTop>
             </Router>

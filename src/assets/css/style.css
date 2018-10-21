@@ -178,13 +178,15 @@ a.homeButton:hover {
         width: 100%;
     }
     #header.active {
-        width: calc(100% - var(--sidebar-width));
+        width: 100%;
+        right: calc(-1 * var(--sidebar-width));
     }
     #content {
         width: 100%;
     }
     #content.active {
-        width: calc(100% - var(--sidebar-width));
+        width: 100%;
+        right: calc(-1 * var(--sidebar-width));
     }
     .authInnerContent {
         width: 100%;

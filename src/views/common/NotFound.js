@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Navbar,
     NavbarBrand,
@@ -26,6 +27,7 @@ class NotFound extends Component {
                         <Col style={{textAlign:'center'}}>
                             <h1>404</h1>
                             <h3>Not Found</h3>
+                            <Link to="/main">Go to main page</Link>
                         </Col>
                     </Row>
                 </Container>
