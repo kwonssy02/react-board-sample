@@ -14,6 +14,7 @@ import {
     DropdownItem,
     DropdownMenu
 } from "reactstrap";
+import windowSize from 'react-window-size';
 import { Aperture, ChevronDown, Settings, AlignLeft } from 'react-feather';
 import mainRoutes from 'routes/main';
 
@@ -25,14 +26,26 @@ class MainLayout extends Component {
             active: false,
             toggleButtonStyle: 'black',
             currentPath: '',
+            isWindowSmall: false,
         };
     }
 
     static getDerivedStateFromProps(props, state) {
-        if(state.currentPath !== props.location.pathname) {
-            return {
-                currentPath: props.location.pathname
-            }
+        console.log(props.windowWidth);
+        let { currentPath } = state;
+        let isWindowSmall = false;
+
+        if(currentPath !== props.location.pathname) {
+            currentPath = props.location.pathname;
+        }
+
+        if(props.windowWidth <= 768) {
+            isWindowSmall = true;
+        }
+
+        return {
+            currentPath,
+            isWindowSmall
         }
     }
 
@@ -77,12 +90,12 @@ class MainLayout extends Component {
     }
 
     render() {
-        const { active, toggleButtonStyle, currentPath } = this.state;
+        const { active, toggleButtonStyle, currentPath, isWindowSmall } = this.state;
         return (
             <div>
                 {/* Sidebar */}
                 <Nav id="sidebar" className={active ? 'active' : null} vertical>
-                    <NavLink to="/main/home" className={'homeButton'} tag={Link} style={{fontSize:'18px', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}}>
+                    <NavLink to="/main/home" className={'homeButton'} tag={Link} style={{fontSize:'18px', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
                         <Aperture size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                     </NavLink>
                     
@@ -98,9 +111,16 @@ class MainLayout extends Component {
                             );
                             
                             route.subRoutes.map((subRoute, subKey) => {
+                                // menus.push(
+                                //     <div className={"collapse"} id={"toggle" + key}>
+                                //         <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'15px', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}}>
+                                //             {subRoute.name}
+                                //         </NavLink>
+                                //     </div>
+                                // )
                                 menus.push(
                                     <UncontrolledCollapse toggler={"#toggle" + key} key={subKey}>
-                                        <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'15px', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}}>
+                                        <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'15px', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
                                             {subRoute.name}
                                         </NavLink>
                                     </UncontrolledCollapse>
@@ -110,7 +130,7 @@ class MainLayout extends Component {
                             return menus;
                         }else {
                             return (
-                                <NavLink to={route.path} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1rem'}} key={key}>
+                                <NavLink to={route.path} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1rem'}} key={key} onClick={isWindowSmall ? this.toggle : null}>
                                     <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
                                     {route.name}
                                 </NavLink>
@@ -189,9 +209,11 @@ class MainLayout extends Component {
                         </ul>
                     </div>
                 </div>
+
+                <div id={'overlay'} className={active ? 'active' : null} onClick={this.toggle}/>
             </div>
         );
     }
 }
 
-export default withRouter(MainLayout);
+export default withRouter(windowSize(MainLayout));

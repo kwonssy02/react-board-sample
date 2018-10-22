@@ -29,11 +29,8 @@ class App extends Component {
                                 bgColor='black'
                                 spinnerColor='#9ee5f8'
                             >
-                                {/* // ...
-                                // here loadable content
-                                // for example, async data
-                                //<div>Loadable content</div> */}
-                            </LoadingScreen> 
+                                {''}
+                            </LoadingScreen>
                         </div>  
                 </ScrollToTop>
             </Router>
