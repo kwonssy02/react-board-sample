@@ -37,8 +37,8 @@ class AuthLayout extends Component {
                         })}
                     </Nav>
                 </Navbar>
-                <Container className={'authContent'} style={{minHeight:'100vh'}}>
-                    <Row className={'authInnerContent'}>
+                <Container className={'authContent'}>
+                    <Row className={'authContentRow'}>
                         <Col>
                             <Switch>
                                 {authRoutes.map((route, key) => {
