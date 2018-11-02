@@ -1,38 +1,44 @@
-import Home from 'views/main/Home';
-import VehicleList from 'views/main/VehicleList';
-import { Server, Terminal, Compass } from 'react-feather';
+import Alerts from 'views/main/Alerts';
+import Badges from 'views/main/Badges';
+import Buttons from 'views/main/Buttons';
+import Tables from 'views/main/Tables';
+import Tabs from 'views/main/Tabs';
+import { Terminal } from 'react-feather';
 
 const contextPath = '/main/';
 
 const mainRoutes = [
     {
-        path: contextPath + 'home',
-        name: '메인 페이지',
-        icon: Server,
-        component: Home
-    },
-    {
-        name: '차량 조회',
+        name: 'Components',
         icon: Terminal,
         subRoutes: [
             {
-                path: contextPath + 'vehicleList',
-                name: '차량 조회회',
-                component: VehicleList
-            }
-        ]
-    },
-    {
-        name: '차량 조333회',
-        icon: Compass,
-        subRoutes: [
+                path: contextPath + 'components/alerts',
+                name: 'Alerts',
+                component: Alerts
+            },
             {
-                path: contextPath + 'vehicleList44442',
-                name: '차량 44',
-                component: VehicleList
+                path: contextPath + 'components/badges',
+                name: 'Badges',
+                component: Badges
+            },
+            {
+                path: contextPath + 'components/buttons',
+                name: 'Buttons',
+                component: Buttons
+            },
+            {
+                path: contextPath + 'components/tables',
+                name: 'Tables',
+                component: Tables
+            },
+            {
+                path: contextPath + 'components/tabs',
+                name: 'Tabs',
+                component: Tabs
             }
         ]
-    },
+    }
 ]
 
 export default mainRoutes;

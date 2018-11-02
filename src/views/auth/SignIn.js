@@ -43,7 +43,7 @@ class SignIn extends Component {
             return;
         }
         
-        this.props.history.push('/main/home');
+        this.props.history.push('/main/components');
     }
 
     onChangeUserId = (event) => {
@@ -67,7 +67,7 @@ class SignIn extends Component {
                     {/* <CardTitle>Sign in</CardTitle>
                     <CardSubtitle>Card subtitle</CardSubtitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText> */}
-                    <Form style={{marginBottom:'10px'}}>
+                    <Form style={{marginBottom:'1rem'}}>
                         <FormGroup>
                             <Label for="userId">ID</Label>
                             <Input 
@@ -77,7 +77,7 @@ class SignIn extends Component {
                                 placeholder="Enter id" 
                                 onChange={this.onChangeUserId}
                             />
-                            <FormFeedback invalid={"true"}>아이디는 필수 입력값입니다.</FormFeedback>
+                            <FormFeedback invalid={"true"}>ID is required.</FormFeedback>
                             {/* <FormText>Example help text that remains unchanged.</FormText> */}
                         </FormGroup>
                         <FormGroup>
@@ -90,7 +90,7 @@ class SignIn extends Component {
                                 placeholder="Enter password" 
                                 onChange={this.onChangePassword}
                             />
-                            <FormFeedback invalid={"true"}>비밀번호는 필수 입력값입니다.</FormFeedback>
+                            <FormFeedback invalid={"true"}>Password is required.</FormFeedback>
                         </FormGroup>
                         <FormGroup check>
                             <Label check>

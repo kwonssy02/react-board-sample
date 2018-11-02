@@ -5,9 +5,6 @@ import {
     NavbarBrand,
     Nav,
     NavLink,
-    Container,
-    Row,
-    Col,
     UncontrolledCollapse,
     UncontrolledDropdown,
     DropdownToggle,
@@ -95,7 +92,7 @@ class MainLayout extends Component {
             <div>
                 {/* Sidebar */}
                 <Nav id="sidebar" className={active ? 'active' : null} vertical>
-                    <NavLink to="/main/home" className={'homeButton'} tag={Link} style={{fontSize:'18px', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
+                    <NavLink to="/main/components/" className={'homeButton'} tag={Link} style={{fontSize:'1rem', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
                         <Aperture size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                     </NavLink>
                     
@@ -103,10 +100,10 @@ class MainLayout extends Component {
                         if(route.subRoutes) {
                             let menus = [];
                             menus.push(
-                                <NavLink to={"#"} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1rem'}} id={"toggle" + key} key={key}>
+                                <NavLink to={"#"} className={'menu'} tag={RRNavLink} style={{fontSize:'1rem', padding:'.5rem 1rem'}} id={"toggle" + key} key={key}>
                                     <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
                                     {route.name}
-                                    <ChevronDown size={14} style={{position:'absolute', right:'15px', marginTop:'5px'}}/>
+                                    <ChevronDown size={14} style={{position:'absolute', right:'1rem', marginTop:'5px'}}/>
                                 </NavLink>
                             );
                             
@@ -172,33 +169,28 @@ class MainLayout extends Component {
 
                 {/* Content */}
                 <div id="content" className={active ? 'active' : null}>
-
                     {/* Inner Content */}
-                    <Container id="innerContent" fluid style={{padding:'1rem'}}>
-                        <Row noGutters>
-                            <Col style={{padding:'1rem', background:'#fff'}}>
-                                <Switch>
-                                    {mainRoutes.map((route, key) => {
-                                        if(route.subRoutes) {
-                                            let subRoutes = [];
-                                            route.subRoutes.map((subRoute, subKey) => {
-                                                subRoutes.push(
-                                                    <Route path={subRoute.path} component={subRoute.component} key={subKey}/>    
-                                                )
-                                            });
-                                            return subRoutes;
+                    <div id="innerContent" fluid style={{padding:'1rem'}}>
+                        <Switch>
+                            {mainRoutes.map((route, key) => {
+                                if(route.subRoutes) {
+                                    let subRoutes = [];
+                                    route.subRoutes.map((subRoute, subKey) => {
+                                        subRoutes.push(
+                                            <Route path={subRoute.path} component={subRoute.component} key={subKey}/>    
+                                        )
+                                    });
+                                    return subRoutes;
 
-                                        }else {
-                                            return (
-                                                <Route path={route.path} component={route.component} key={key}/>
-                                            )
-                                        }
-                                    })}
-                                    <Redirect to="/main/home"/>
-                                </Switch>
-                            </Col>
-                        </Row>
-                    </Container>
+                                }else {
+                                    return (
+                                        <Route path={route.path} component={route.component} key={key}/>
+                                    )
+                                }
+                            })}
+                            <Redirect to="/main/components/buttons"/>
+                        </Switch>
+                    </div>
 
                     {/* Footer */}
                     <div className="footer small" align="right">

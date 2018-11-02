@@ -3,9 +3,11 @@ $sidebar-width: 220px;
 $footer-height: 57px;
 $authHeader-height: 57px;
 
+$sidebar-text-color: #fff;
 $sidebar-background-color: #2F3E4C;
 $sidebar-menu-color: #E9ECEF;
 $sidebar-menu-hover-color: #273440;
+$sidebar-selected-border-color: #fff;
 $sidebar-submenu-color: #CED4DA;
 $sidebar-submenu-background-color: #2a3948;
 $sidebar-submenu-hover-color: #E9ECEF;
@@ -46,7 +48,7 @@ body {
     height: 100vh;
     z-index: 1000;
     background: $sidebar-background-color;
-    color: #fff;
+    color: $sidebar-text-color;
     transition: all 0.3s;
     
     &.active {
@@ -72,6 +74,7 @@ body {
     a.active {
         color: $sidebar-menu-active-color;
         background: $sidebar-menu-active-background-color;
+        border-right: 4px solid $sidebar-selected-border-color;
     }
 }
 
@@ -157,8 +160,6 @@ a.homeButton {
         width: 100%;
     }
 }
-
-
 /* ---------------------------------------------------
     Auth Header
 ----------------------------------------------------- */
@@ -202,7 +203,7 @@ a.homeButton {
         
         &.active {
             width: 100%;
-            right: calc(-1 * #{$sidebar-width});
+            // right: calc(-1 * #{$sidebar-width});
         }
     }
     #content {
@@ -210,7 +211,7 @@ a.homeButton {
         
         &.active {
             width: 100%;
-            right: calc(-1 * #{$sidebar-width});
+            // right: calc(-1 * #{$sidebar-width});
         }
     }
     .authInnerContent {
