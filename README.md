@@ -2,7 +2,6 @@
 This is react-based sample admin template.
 
 ## Installation
-react app의 개발환경을 구성합니다.
 
 - install node.js v8.9.4
 - install create-react-app
