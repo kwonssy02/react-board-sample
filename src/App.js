@@ -11,12 +11,12 @@ import NotFound from 'views/common/NotFound';
 class App extends Component {
     render() {    
         return (
-            <Router>
+            <Router basename="/react-board-sample">
                 <ScrollToTop>
                         <div>
                             <Switch>
                                 <Route exact path="/" render={() =>
-                                    <Redirect from="/" to="/auth/signIn"/>
+                                    <Redirect from="/" to="/main/components/alerts"/>
                                 }/>
                                 <Route path="/auth" component={AuthLayout} />
                                 <Route path="/main" component={MainLayout} />
