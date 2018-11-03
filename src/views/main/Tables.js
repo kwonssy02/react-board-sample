@@ -192,7 +192,7 @@ class Tables extends Component {
                 </ContentCard>
 
                 <ContentCard title="Small Table">
-                    <Table small responsive>
+                    <Table size="sm" responsive>
                         <thead>
                             <tr>
                                 <th>#</th>

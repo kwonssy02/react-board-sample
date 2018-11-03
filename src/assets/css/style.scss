@@ -57,6 +57,9 @@ body {
 
     a.menu {
         color: $sidebar-menu-color;
+        font-size:'1.5rem';
+        padding:'.5rem 1rem';
+
         &:hover {
             background: $sidebar-menu-hover-color;
         }
@@ -169,15 +172,11 @@ a.homeButton {
 }
 
 .authContent {
-    height: calc(100vh - #{$authHeader-height}) !important;
+    // height: calc(100vh - #{$authHeader-height}) !important;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    .authContentRow {
-        min-width: 80%;
-        margin-top: -5rem !important;
-    }
 }
 
 .authButton {
@@ -213,9 +212,6 @@ a.homeButton {
             width: 100%;
             // right: calc(-1 * #{$sidebar-width});
         }
-    }
-    .authInnerContent {
-        width: 100%;
     }
     #overlay {
         &.active {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
-    Card,
     Button,
     Form,
     FormGroup,
@@ -9,6 +8,9 @@ import {
     Input,
     FormFeedback
 } from "reactstrap";
+import ContentRow from 'components/ContentRow';
+import ContentCol from 'components/ContentCol';
+import ContentCard from 'components/ContentCard';
 
 class SignIn extends Component {
     constructor(props) {
@@ -62,32 +64,27 @@ class SignIn extends Component {
         const { isInvalidUserId, isInvalidPassword } = this.state;
         return (
             <div>
-                <h3>Sign in</h3>
-                <Card body>
-                    {/* <CardTitle>Sign in</CardTitle>
-                    <CardSubtitle>Card subtitle</CardSubtitle>
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText> */}
+                <ContentCard>
+                    <ContentRow>
+                        <ContentCol>
+                            <h3>Sign in</h3>
+                        </ContentCol>
+                    </ContentRow>
                     <Form style={{marginBottom:'1rem'}}>
                         <FormGroup>
-                            <Label for="userId">ID</Label>
                             <Input 
                                 invalid={isInvalidUserId}
-                                name="userId" 
-                                id="userId" 
-                                placeholder="Enter id" 
+                                placeholder="ID" 
                                 onChange={this.onChangeUserId}
                             />
                             <FormFeedback invalid={"true"}>ID is required.</FormFeedback>
                             {/* <FormText>Example help text that remains unchanged.</FormText> */}
                         </FormGroup>
                         <FormGroup>
-                            <Label for="password">Password</Label>
                             <Input 
                                 invalid={isInvalidPassword}
                                 type="password" 
-                                name="password" 
-                                id="password" 
-                                placeholder="Enter password" 
+                                placeholder="Password" 
                                 onChange={this.onChangePassword}
                             />
                             <FormFeedback invalid={"true"}>Password is required.</FormFeedback>
@@ -99,8 +96,15 @@ class SignIn extends Component {
                             </Label>
                         </FormGroup>
                     </Form>
-                    <Button className={'authButton'} onClick={this.onClickSignIn}>Sign in</Button>
-                </Card>
+                    <ContentRow>
+                        <ContentCol>
+                            <Button className={'authButton'} onClick={this.onClickSignIn}>Sign in</Button>
+                        </ContentCol>
+                        <ContentCol right>
+                            <Button color="link">Forgot Password?</Button>
+                        </ContentCol>
+                    </ContentRow>
+                </ContentCard>
             </div>
         );
     }

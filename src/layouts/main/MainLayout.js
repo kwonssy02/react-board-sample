@@ -12,7 +12,7 @@ import {
     DropdownMenu
 } from "reactstrap";
 import windowSize from 'react-window-size';
-import { Aperture, ChevronDown, Settings, AlignLeft } from 'react-feather';
+import { Target, ChevronDown, Settings, AlignLeft } from 'react-feather';
 import mainRoutes from 'routes/main';
 
 class MainLayout extends Component {
@@ -28,7 +28,7 @@ class MainLayout extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        console.log(props.windowWidth);
+        
         let { currentPath } = state;
         let isWindowSmall = false;
 
@@ -70,6 +70,10 @@ class MainLayout extends Component {
         });
     }
 
+    menuDropdownToggle = (menuId) => {
+
+    }
+
     onMouseEnterToggle = () => {
         this.setState({
             toggleButtonStyle: '#30C0AA'
@@ -93,41 +97,33 @@ class MainLayout extends Component {
                 {/* Sidebar */}
                 <Nav id="sidebar" className={active ? 'active' : null} vertical>
                     <NavLink to="/main/components/" className={'homeButton'} tag={Link} style={{fontSize:'1rem', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
-                        <Aperture size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
+                        <Target size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                     </NavLink>
                     
                     {mainRoutes.map((route, key) => {
                         if(route.subRoutes) {
-                            let menus = [];
-                            menus.push(
-                                <NavLink to={"#"} className={'menu'} tag={RRNavLink} style={{fontSize:'1rem', padding:'.5rem 1rem'}} id={"toggle" + key} key={key}>
+                            return (
+                                <div key={key}>
+                                <NavLink to={"#"} className={'menu'} tag={RRNavLink} key={key} id={"toggle" + key}>
                                     <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
                                     {route.name}
                                     <ChevronDown size={14} style={{position:'absolute', right:'1rem', marginTop:'5px'}}/>
                                 </NavLink>
-                            );
-                            
-                            route.subRoutes.map((subRoute, subKey) => {
-                                // menus.push(
-                                //     <div className={"collapse"} id={"toggle" + key}>
-                                //         <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'15px', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}}>
-                                //             {subRoute.name}
-                                //         </NavLink>
-                                //     </div>
-                                // )
-                                menus.push(
-                                    <UncontrolledCollapse toggler={"#toggle" + key} key={subKey}>
-                                        <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'15px', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
+                                <UncontrolledCollapse toggler={"#toggle" + key}>
+                                    {route.subRoutes.map((subRoute, subKey) => {
+                                        return (
+                                            <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'1rem', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}} onClick={isWindowSmall ? this.toggle : null} key={subKey}>
                                             {subRoute.name}
-                                        </NavLink>
-                                    </UncontrolledCollapse>
-                                )
-                            });
-
-                            return menus;
+                                            </NavLink>
+                                        )
+                                    })}
+                                </UncontrolledCollapse>
+                                </div>
+                            )
+                            
                         }else {
                             return (
-                                <NavLink to={route.path} className={'menu'} tag={RRNavLink} style={{fontSize:'15px', padding:'.5rem 1rem'}} key={key} onClick={isWindowSmall ? this.toggle : null}>
+                                <NavLink to={route.path} className={'menu'} tag={RRNavLink} key={key} onClick={isWindowSmall ? this.toggle : null}>
                                     <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
                                     {route.name}
                                 </NavLink>
@@ -135,7 +131,6 @@ class MainLayout extends Component {
 
                         }
                     })}
-                    
                 </Nav>
                 
                 {/* Header */}
@@ -170,7 +165,7 @@ class MainLayout extends Component {
                 {/* Content */}
                 <div id="content" className={active ? 'active' : null}>
                     {/* Inner Content */}
-                    <div id="innerContent" fluid style={{padding:'1rem'}}>
+                    <div id="innerContent" style={{padding:'1rem'}}>
                         <Switch>
                             {mainRoutes.map((route, key) => {
                                 if(route.subRoutes) {
@@ -179,6 +174,7 @@ class MainLayout extends Component {
                                         subRoutes.push(
                                             <Route path={subRoute.path} component={subRoute.component} key={subKey}/>    
                                         )
+                                        return null;
                                     });
                                     return subRoutes;
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
+import ContentRow from 'components/ContentRow';
 import ContentCol from 'components/ContentCol';
 import ContentCard from 'components/ContentCard';
 
@@ -8,7 +9,7 @@ class Buttons extends Component {
         return (
             <div>
                 <ContentCard title={'Buttons'}>
-                    <Row style={{alignItems:'center'}}>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol xl="2" md="12">
                             Normal
                         </ContentCol>
@@ -33,8 +34,8 @@ class Buttons extends Component {
                         <ContentCol center>
                             <Button color="link">link</Button>
                         </ContentCol>
-                    </Row>
-                    <Row style={{alignItems:'center'}}>
+                    </ContentRow>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol xl="2" md="12">
                             Active
                         </ContentCol>
@@ -59,8 +60,8 @@ class Buttons extends Component {
                         <ContentCol center>
                             <Button color="link" active>link</Button>
                         </ContentCol>
-                    </Row>
-                    <Row style={{alignItems:'center'}}>
+                    </ContentRow>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol xl="2" md="12">
                             Disabled
                         </ContentCol>
@@ -85,11 +86,11 @@ class Buttons extends Component {
                         <ContentCol center>
                             <Button color="link" disabled>link</Button>
                         </ContentCol>
-                    </Row>
+                    </ContentRow>
                 </ContentCard>
 
                 <ContentCard title={'Outline Buttons'}>
-                    <Row style={{alignItems:'center'}}>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol xl="2" md="12">
                             Normal
                         </ContentCol>
@@ -114,8 +115,8 @@ class Buttons extends Component {
                         <ContentCol center>
                             <Button outline color="link">link</Button>
                         </ContentCol>
-                    </Row>
-                    <Row style={{alignItems:'center'}}>
+                    </ContentRow>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol xl="2" md="12">
                             Active
                         </ContentCol>
@@ -140,8 +141,8 @@ class Buttons extends Component {
                         <ContentCol center>
                             <Button outline color="link" active>link</Button>
                         </ContentCol>
-                    </Row>
-                    <Row style={{alignItems:'center'}}>
+                    </ContentRow>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol xl="2" md="12">
                             Disabled
                         </ContentCol>
@@ -166,11 +167,11 @@ class Buttons extends Component {
                         <ContentCol center>
                             <Button outline color="link" disabled>link</Button>
                         </ContentCol>
-                    </Row>
+                    </ContentRow>
                 </ContentCard>
 
                 <ContentCard title={'Block Buttons'}>
-                    <Row style={{alignItems:'center'}}>
+                    <ContentRow style={{alignItems:'center'}}>
                         <ContentCol md="12">
                             <Button color="primary" block>primary</Button>
                         </ContentCol>
@@ -189,7 +190,7 @@ class Buttons extends Component {
                         <ContentCol md="12">
                             <Button outline color="warning" block>warning</Button>
                         </ContentCol>
-                    </Row>
+                    </ContentRow>
                 </ContentCard>
             </div>
         );

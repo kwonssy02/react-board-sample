@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import { Route, withRouter, NavLink as RRNavLink, Switch, Redirect } from 'react-router-dom';
-import {
-    Navbar,
-    NavbarBrand,
-    Container,
-    Row,
-    Col,
-    Nav,
-    NavLink,
-    NavItem
-} from "reactstrap";
-import { Aperture } from 'react-feather';
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
 import authRoutes from 'routes/auth';
+import ContentRow from 'components/ContentRow';
+import ContentCol from 'components/ContentCol';
 // import SignIn from 'views/auth/SignIn';
 
 class AuthLayout extends Component {
@@ -19,9 +10,9 @@ class AuthLayout extends Component {
         return (
             <div>
                 {/* Header */}
-                <Navbar className={'authHeader'} color={'light'} light expand="md">
+                {/* <Navbar className={'authHeader'} color={'light'} light expand="md">
                     <NavbarBrand>
-                        <Aperture size={25} color={'#30C0AA'}/>
+                        <Target size={25} color={'#30C0AA'}/>
                     </NavbarBrand>
                     <NavbarBrand>
                         Sample Project
@@ -36,21 +27,19 @@ class AuthLayout extends Component {
                             )
                         })}
                     </Nav>
-                </Navbar>
-                <Container className={'authContent'}>
-                    <Row className={'authContentRow'}>
-                        <Col>
-                            <Switch>
-                                {authRoutes.map((route, key) => {
-                                    return (
-                                        <Route path={route.path} component={route.component} key={key}/>
-                                    )
-                                })}
-                                <Redirect to="/auth/signIn" />
-                            </Switch>
-                        </Col>
-                    </Row>
-                </Container>
+                </Navbar> */}
+                <ContentRow className='authContent'>
+                    <ContentCol xl={6} lg={7} md={8} sm={10} xs={11}>
+                        <Switch>
+                            {authRoutes.map((route, key) => {
+                                return (
+                                    <Route path={route.path} component={route.component} key={key}/>
+                                )
+                            })}
+                            <Redirect to="/auth/signIn" />
+                        </Switch>
+                    </ContentCol>
+                </ContentRow>
             </div>
         );
     }

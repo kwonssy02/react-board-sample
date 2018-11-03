@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import {
-    Navbar,
-    NavbarBrand,
-    Container,
-    Row,
-    Col
+    Button
 } from "reactstrap";
-import { Aperture } from 'react-feather';
+import ContentRow from 'components/ContentRow';
+import ContentCol from 'components/ContentCol';
 
 class NotFound extends Component {
+    goMainPage = () => {
+        this.props.history.push('/main');
+    };
+
     render() {
         return (
             <div>
                 {/* Header */}
-                <Navbar className={'authHeader'} color={'light'} light expand="md">
+                {/* <Navbar className={'authHeader'} color={'light'} light expand="md">
                     <NavbarBrand>
                         <Aperture size={25} color={'#30C0AA'}/>
                     </NavbarBrand>
                     <NavbarBrand>
                         Sample Project
                     </NavbarBrand>
-                </Navbar>
-                <Container className={'authContent'} style={{minHeight:'100vh'}}>
-                    <Row className={'authInnerContent'}>
-                        <Col style={{textAlign:'center'}}>
-                            <h1>404</h1>
-                            <h3>Not Found</h3>
-                            <Link to="/main">Go to main page</Link>
-                        </Col>
-                    </Row>
-                </Container>
+                </Navbar> */}
+                <ContentRow className={'authContent'}>
+                    <ContentCol xl={12} style={{textAlign:'center'}}>
+                        <h1>404</h1>
+                        <h4>Not Found</h4>
+                        <Button color="primary" onClick={this.goMainPage}>
+                            Go to main page..
+                        </Button>
+                    </ContentCol>
+                </ContentRow>
             </div>
         );
     }
 }
 
-export default NotFound;
+export default withRouter(NotFound);

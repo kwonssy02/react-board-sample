@@ -14,11 +14,10 @@ class App extends Component {
             <Router>
                 <ScrollToTop>
                         <div>
-                            {/* {this.props.location.pathname === '/' ?
-                                <Redirect from="/" to="/auth/signIn"/>
-                                : null
-                            } */}
                             <Switch>
+                                <Route exact path="/" render={() =>
+                                    <Redirect from="/" to="/auth/signIn"/>
+                                }/>
                                 <Route path="/auth" component={AuthLayout} />
                                 <Route path="/main" component={MainLayout} />
                                 <Route component={NotFound} />

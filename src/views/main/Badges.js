@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Badge, Row, Col } from 'reactstrap';
+import { Badge } from 'reactstrap';
+import ContentRow from 'components/ContentRow';
+import ContentCol from 'components/ContentCol';
 import ContentCard from 'components/ContentCard';
 
 class Badges extends Component {
@@ -7,8 +9,11 @@ class Badges extends Component {
         return (
             <div>
                 <ContentCard title="Badges">
-                    <Row>
-                        <Col>
+                    <ContentRow>
+                        <ContentCol xl={1}>
+                            Normal
+                        </ContentCol>
+                        <ContentCol xl={11}>
                             <Badge color="primary">Primary</Badge>{' '}
                             <Badge color="secondary">Secondary</Badge>{' '}
                             <Badge color="success">Success</Badge>{' '}
@@ -17,10 +22,13 @@ class Badges extends Component {
                             <Badge color="info">Info</Badge>{' '}
                             <Badge color="light">Light</Badge>{' '}
                             <Badge color="dark">Dark</Badge>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
+                        </ContentCol>
+                    </ContentRow>
+                    <ContentRow>
+                        <ContentCol xl={1}>
+                            Pills
+                        </ContentCol>
+                        <ContentCol xl={11}>
                             <Badge color="primary" pill>Primary</Badge>{' '}
                             <Badge color="secondary" pill>Secondary</Badge>{' '}
                             <Badge color="success" pill>Success</Badge>{' '}
@@ -29,8 +37,8 @@ class Badges extends Component {
                             <Badge color="info" pill>Info</Badge>{' '}
                             <Badge color="light" pill>Light</Badge>{' '}
                             <Badge color="dark" pill>Dark</Badge>
-                        </Col>
-                    </Row>
+                        </ContentCol>
+                    </ContentRow>
                 </ContentCard>
             </div>
         );
