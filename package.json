@@ -1,10 +1,12 @@
 {
   "name": "board-sample",
   "version": "0.1.0",
+  "homepage": "https://kwonssy02.github.io/react-board-sample/",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",
     "chart.js": "^2.7.3",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",
     "react": "^16.4.1",
@@ -22,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
