@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/react-board-sample/static/js/runtime~main.b2faf094.js"
   },
   {
-    "revision": "736c86ac840f668b31d7",
-    "url": "/react-board-sample/static/js/main.736c86ac.chunk.js"
+    "revision": "d09d26990027ad11e63c",
+    "url": "/react-board-sample/static/js/main.d09d2699.chunk.js"
   },
   {
     "revision": "9d78c0d31681806969b7",
     "url": "/react-board-sample/static/js/1.9d78c0d3.chunk.js"
   },
   {
-    "revision": "736c86ac840f668b31d7",
+    "revision": "d09d26990027ad11e63c",
     "url": "/react-board-sample/static/css/main.e2b39fe1.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/react-board-sample/static/css/1.0a4f3a38.chunk.css"
   },
   {
-    "revision": "b0d530af734a674d56d8018d13887076",
+    "revision": "d29c677ddaf331b9ee2f9a6ef3484c7f",
     "url": "/react-board-sample/index.html"
   }
 ];
