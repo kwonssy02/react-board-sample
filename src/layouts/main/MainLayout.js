@@ -134,7 +134,7 @@ class MainLayout extends Component {
                 </Nav>
                 
                 {/* Header */}
-                <Navbar id="header" className={active ? 'active' : null} color="light" light expand="md">
+                <Navbar id="header" className={active ? 'active' : null} color="light" light>
                     <NavbarBrand onClick={this.toggle} onMouseEnter={this.onMouseEnterToggle} onMouseLeave={this.onMouseLeaveToggle} style={{cursor:'pointer'}}>
                         <AlignLeft size={25} color={toggleButtonStyle}/>
                     </NavbarBrand>
