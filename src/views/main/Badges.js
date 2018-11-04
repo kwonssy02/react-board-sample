@@ -8,12 +8,9 @@ class Badges extends Component {
     render() {
         return (
             <div>
-                <ContentCard title="Badges">
+                <ContentCard title="Normal Badges">
                     <ContentRow>
-                        <ContentCol xl={1}>
-                            Normal
-                        </ContentCol>
-                        <ContentCol xl={11}>
+                        <ContentCol>
                             <Badge color="primary">Primary</Badge>{' '}
                             <Badge color="secondary">Secondary</Badge>{' '}
                             <Badge color="success">Success</Badge>{' '}
@@ -24,11 +21,11 @@ class Badges extends Component {
                             <Badge color="dark">Dark</Badge>
                         </ContentCol>
                     </ContentRow>
+                </ContentCard>
+
+                <ContentCard title="Pill Badges">
                     <ContentRow>
-                        <ContentCol xl={1}>
-                            Pills
-                        </ContentCol>
-                        <ContentCol xl={11}>
+                        <ContentCol>
                             <Badge color="primary" pill>Primary</Badge>{' '}
                             <Badge color="secondary" pill>Secondary</Badge>{' '}
                             <Badge color="success" pill>Success</Badge>{' '}

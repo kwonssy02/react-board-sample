@@ -65,8 +65,17 @@ class MainLayout extends Component {
     }
 
     toggle = () => {
+        const { active, isWindowSmall } = this.state;
+        if(isWindowSmall) {
+            if(active === true) {
+                document.body.style.overflow = 'auto';
+            }else {
+                document.body.style.overflow = 'hidden';    
+            }
+        }
+
         this.setState({
-            active: !this.state.active
+            active: !active
         });
     }
 
@@ -94,42 +103,47 @@ class MainLayout extends Component {
         const { active, toggleButtonStyle, currentPath, isWindowSmall } = this.state;
         return (
             <div>
+                {/* Sidebar */}
                 <div id="sidebar" className={active ? 'active' : null}>
-                    {/* Sidebar */}
-                    <Nav vertical>
+                    <Nav vertical style={{minHeight:'100vh'}}>
                         <NavLink to="/main/components/" className={'homeButton'} tag={Link} style={{fontSize:'1rem', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
                             <Target size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                         </NavLink>
                         
                         {mainRoutes.map((route, key) => {
-                            if(route.subRoutes) {
-                                return (
-                                    <div key={key}>
-                                    <NavLink to={"#"} className={'menu'} tag={RRNavLink} key={key} id={"toggle" + key}>
-                                        <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
-                                        {route.name}
-                                        <ChevronDown size={14} style={{position:'absolute', right:'1rem', marginTop:'5px'}}/>
-                                    </NavLink>
-                                    <UncontrolledCollapse toggler={"#toggle" + key}>
-                                        {route.subRoutes.map((subRoute, subKey) => {
-                                            return (
-                                                <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'1rem', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}} onClick={isWindowSmall ? this.toggle : null} key={subKey}>
-                                                {subRoute.name}
-                                                </NavLink>
-                                            )
-                                        })}
-                                    </UncontrolledCollapse>
-                                    </div>
-                                )
-                                
-                            }else {
-                                return (
-                                    <NavLink to={route.path} className={'menu'} tag={RRNavLink} key={key} onClick={isWindowSmall ? this.toggle : null}>
-                                        <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
-                                        {route.name}
-                                    </NavLink>
-                                )
-
+                            if(route.sidebar) {
+                                if(route.subRoutes) {
+                                    return (
+                                        <div key={key}>
+                                        <NavLink to={"#"} className={'menu'} tag={RRNavLink} key={key} id={"toggle" + key}>
+                                            <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
+                                            {route.name}
+                                            <ChevronDown size={14} style={{position:'absolute', right:'1rem', marginTop:'5px'}}/>
+                                        </NavLink>
+                                        <UncontrolledCollapse toggler={"#toggle" + key}>
+                                            {route.subRoutes.map((subRoute, subKey) => {
+                                                if(subRoute.sidebar) {
+                                                    return (
+                                                        <NavLink to={subRoute.path} className={'submenu'} tag={RRNavLink} style={{fontSize:'1rem', paddingTop:'.5rem', paddingBottom:'.5rem', paddingLeft:'4.5rem'}} onClick={isWindowSmall ? this.toggle : null} key={subKey}>
+                                                        {subRoute.name}
+                                                        </NavLink>
+                                                    )
+                                                }else {
+                                                    return null;
+                                                }
+                                            })}
+                                        </UncontrolledCollapse>
+                                        </div>
+                                    )
+                                    
+                                }else {
+                                    return (
+                                        <NavLink to={route.path} className={'menu'} tag={RRNavLink} key={key} onClick={isWindowSmall ? this.toggle : null}>
+                                            <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
+                                            {route.name}
+                                        </NavLink>
+                                    )
+                                }
                             }
                         })}
                     </Nav>
@@ -167,7 +181,7 @@ class MainLayout extends Component {
                 {/* Content */}
                 <div id="content" className={active ? 'active' : null}>
                     {/* Inner Content */}
-                    <div id="innerContent" style={{padding:'1rem'}}>
+                    <div id="innerContent" style={{padding:'2rem'}}>
                         <Switch>
                             {mainRoutes.map((route, key) => {
                                 if(route.subRoutes) {
@@ -186,7 +200,7 @@ class MainLayout extends Component {
                                     )
                                 }
                             })}
-                            <Redirect to="/main/components/buttons"/>
+                            <Redirect to="/main/home"/>
                         </Switch>
                     </div>
 

@@ -16,7 +16,7 @@ class App extends Component {
                         <div>
                             <Switch>
                                 <Route exact path="/" render={() =>
-                                    <Redirect from="/" to="/main/components/alerts"/>
+                                    <Redirect from="/" to="/main/home"/>
                                 }/>
                                 <Route path="/auth" component={AuthLayout} />
                                 <Route path="/main" component={MainLayout} />

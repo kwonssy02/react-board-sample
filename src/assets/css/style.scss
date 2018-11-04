@@ -52,6 +52,7 @@ body {
     background: $sidebar-background-color;
     color: $sidebar-text-color;
     transition: all 0.3s;
+    touch-action: none;
     
     &.active {
         margin-left: calc(-1 * #{$sidebar-width});

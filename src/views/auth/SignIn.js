@@ -45,7 +45,7 @@ class SignIn extends Component {
             return;
         }
         
-        this.props.history.push('/main/components');
+        this.props.history.push('/main');
     }
 
     onChangeUserId = (event) => {
