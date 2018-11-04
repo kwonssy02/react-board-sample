@@ -1,6 +1,9 @@
 # react-board-sample
 This is react-based sample admin template.
 
+![Alt text](/screenshots/charts.jpeg)
+![Alt text](/screenshots/buttons.jpeg)
+
 ## Installation
 
 - install node.js v8.9.4
