@@ -45,8 +45,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     min-height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll;
     z-index: 1000;
     background: $sidebar-background-color;
     color: $sidebar-text-color;
