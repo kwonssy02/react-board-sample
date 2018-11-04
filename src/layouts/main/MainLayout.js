@@ -144,6 +144,8 @@ class MainLayout extends Component {
                                         </NavLink>
                                     )
                                 }
+                            }else {
+                                return null;
                             }
                         })}
                     </Nav>
