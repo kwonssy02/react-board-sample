@@ -16,7 +16,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>9,482</span>
                             <span style={{fontSize:'1rem'}}>{' '}HITS</span>
                             <br/>
-                            <Heart size="1.9rem"/>{'  '}
+                            <Heart size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Today 
                             </span>
@@ -27,7 +27,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>940</span>
                             <span style={{fontSize:'1rem'}}>{' '}Users</span>
                             <br/>
-                            <User size="1.9rem"/>{'  '}
+                            <User size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Welcome 
                             </span>
@@ -38,7 +38,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>50</span>
                             <span style={{fontSize:'1rem'}}>{' '}%</span>
                             <br/>
-                            <Activity size="1.9rem"/>{'  '}
+                            <Activity size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Progress 
                             </span>
@@ -49,7 +49,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>940</span>
                             <span style={{fontSize:'1rem'}}>{' '}KB</span>
                             <br/>
-                            <Database size="1.9rem"/>{'  '}
+                            <Database size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Database 
                             </span>
@@ -128,7 +128,7 @@ class Home extends Component {
                                     }
                                 }}
 
-                                legend={false}
+                                // legend={false}
                             />
                         </ContentCard>
                     </ContentCol>

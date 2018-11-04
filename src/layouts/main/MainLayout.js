@@ -69,8 +69,10 @@ class MainLayout extends Component {
         if(isWindowSmall) {
             if(active === true) {
                 document.body.style.overflow = 'auto';
+                // this.bodyScrolling(true);
             }else {
                 document.body.style.overflow = 'hidden';    
+                // this.bodyScrolling(false);
             }
         }
 
@@ -79,8 +81,12 @@ class MainLayout extends Component {
         });
     }
 
-    menuDropdownToggle = (menuId) => {
-
+    bodyScrolling = (bool) => {
+        if (bool === true) {
+            document.body.addEventListener("touchmove", (e) => e.preventDefault(), false);
+        } else {
+            document.body.removeEventListener("touchmove", (e) => e.preventDefault(), false);
+        }
     }
 
     onMouseEnterToggle = () => {
