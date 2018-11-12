@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Badge } from 'reactstrap';
-import { AlertTriangle, Anchor, Archive } from 'react-feather';
+import { FiAlertTriangle, FiAnchor, FiArchive } from 'react-icons/fi';
 import classnames from 'classnames';
 import ContentCard from 'components/ContentCard';
 import ContentCol from 'components/ContentCol';
@@ -89,7 +89,7 @@ class Tabs extends Component {
                                 className={classnames({ active: this.state.activeTab2 === '1' })}
                                 onClick={() => { this.toggle2('1'); }}
                                 >
-                                    <AlertTriangle size="17"/>{' '}Tab1
+                                    <FiAlertTriangle size="17"/>{' '}Tab1
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -97,7 +97,7 @@ class Tabs extends Component {
                                 className={classnames({ active: this.state.activeTab2 === '2' })}
                                 onClick={() => { this.toggle2('2'); }}
                                 >
-                                    <Anchor size="17"/>{' '}Other Tab
+                                    <FiAnchor size="17"/>{' '}Other Tab
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -105,7 +105,7 @@ class Tabs extends Component {
                                 className={classnames({ active: this.state.activeTab2 === '3' })}
                                 onClick={() => { this.toggle2('3'); }}
                                 >
-                                    <Archive size="17"/>{' '}Last Tabs
+                                    <FiArchive size="17"/>{' '}Last Tabs
                                 </NavLink>
                             </NavItem>
                         </Nav>
