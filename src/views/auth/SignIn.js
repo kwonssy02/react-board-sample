@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
     Button,
@@ -11,6 +12,7 @@ import {
 import ContentRow from 'components/ContentRow';
 import ContentCol from 'components/ContentCol';
 import ContentCard from 'components/ContentCard';
+import { signIn } from 'store/modules/auth';
 
 class SignIn extends Component {
     constructor(props) {
@@ -44,7 +46,8 @@ class SignIn extends Component {
         if(isInvalidUserId || isInvalidPassword) {
             return;
         }
-        
+        localStorage.setItem('userId', userId);
+        this.props.dispatch(signIn(userId));
         this.props.history.push('/main');
     }
 
@@ -110,4 +113,4 @@ class SignIn extends Component {
     }
 }
 
-export default withRouter(SignIn);
+export default connect(null)(withRouter(SignIn));

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Route, Link, NavLink as RRNavLink, withRouter, Redirect, Switch } from "react-router-dom";
 import {
     Navbar,
@@ -12,8 +13,10 @@ import {
     DropdownMenu
 } from "reactstrap";
 import windowSize from 'react-window-size';
-import { Target, ChevronDown, Settings, AlignLeft } from 'react-feather';
+import { IoMdContact, IoMdGlobe } from 'react-icons/io';
+import { FiChevronDown, FiAlignLeft } from 'react-icons/fi';
 import mainRoutes from 'routes/main';
+import { signOut } from 'store/modules/auth';
 
 class MainLayout extends Component {
     constructor(props) {
@@ -24,12 +27,14 @@ class MainLayout extends Component {
             toggleButtonStyle: 'black',
             currentPath: '',
             isWindowSmall: false,
+
+            userId: undefined
         };
     }
 
     static getDerivedStateFromProps(props, state) {
         
-        let { currentPath } = state;
+        let { currentPath, userId } = state;
         let isWindowSmall = false;
 
         if(currentPath !== props.location.pathname) {
@@ -40,9 +45,14 @@ class MainLayout extends Component {
             isWindowSmall = true;
         }
 
+        if(userId !== props.userId) {
+            userId = props.userId;
+        }
+
         return {
             currentPath,
-            isWindowSmall
+            isWindowSmall,
+            userId
         }
     }
 
@@ -102,18 +112,20 @@ class MainLayout extends Component {
     }
 
     signOut = () => {
+        localStorage.removeItem('userId');
+        this.props.dispatch(signOut());
         this.props.history.push('/auth/signIn');
     }
 
     render() {
-        const { active, toggleButtonStyle, currentPath, isWindowSmall } = this.state;
+        const { active, toggleButtonStyle, currentPath, isWindowSmall, userId } = this.state;
         return (
             <div>
                 {/* Sidebar */}
                 <div id="sidebar" className={active ? 'active' : null}>
                     <Nav vertical style={{minHeight:'100vh'}}>
                         <NavLink to="/main/components/" className={'homeButton'} tag={Link} style={{fontSize:'1rem', padding:'1.15rem 1.25rem', marginBottom:'1.5rem'}} onClick={isWindowSmall ? this.toggle : null}>
-                            <Target size={28} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
+                            <IoMdGlobe size={25} color={'#30C0AA'} style={{marginRight:'.75rem'}}/>Sample Project
                         </NavLink>
                         
                         {mainRoutes.map((route, key) => {
@@ -124,7 +136,7 @@ class MainLayout extends Component {
                                         <NavLink to={"#"} className={'menu'} tag={RRNavLink} key={key} id={"toggle" + key}>
                                             <route.icon size={20} color={'white'} style={{marginLeft:'.4rem', marginRight:'.75rem'}}/>
                                             {route.name}
-                                            <ChevronDown size={14} style={{position:'absolute', right:'1rem', marginTop:'5px'}}/>
+                                            <FiChevronDown size={14} style={{position:'absolute', right:'1rem', marginTop:'5px'}}/>
                                         </NavLink>
                                         <UncontrolledCollapse toggler={"#toggle" + key}>
                                             {route.subRoutes.map((subRoute, subKey) => {
@@ -160,15 +172,19 @@ class MainLayout extends Component {
                 {/* Header */}
                 <Navbar id="header" className={active ? 'active' : null} color="light" light>
                     <NavbarBrand onClick={this.toggle} onMouseEnter={this.onMouseEnterToggle} onMouseLeave={this.onMouseLeaveToggle} style={{cursor:'pointer'}}>
-                        <AlignLeft size={25} color={toggleButtonStyle}/>
+                        <FiAlignLeft size={25} color={toggleButtonStyle}/>
                     </NavbarBrand>
                     <NavbarBrand>
                         {this.getCurrentPageName(currentPath)}
                     </NavbarBrand>
+                    
                     <Nav className="ml-auto">
+                        <Navbar>
+                        </Navbar>
                         <UncontrolledDropdown>
                             <DropdownToggle nav style={{color:'black'}}>
-                                <Settings size={20}/>
+                                <IoMdContact size={25}/>{' '}
+                                {userId}
                             </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
@@ -228,4 +244,8 @@ class MainLayout extends Component {
     }
 }
 
-export default withRouter(windowSize(MainLayout));
+export default connect(
+    state => ({
+        userId: state.auth.userId
+    })
+)(withRouter(windowSize(MainLayout)))

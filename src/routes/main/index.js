@@ -5,10 +5,17 @@ import Alerts from 'views/main/Alerts';
 import Badges from 'views/main/Badges';
 import Buttons from 'views/main/Buttons';
 import Charts from 'views/main/Charts';
-import Icons from 'views/main/Icons';
 import Tables from 'views/main/Tables';
 import Tabs from 'views/main/Tabs';
-import { Package, File } from 'react-feather';
+
+import FontAwesome from 'views/main/FontAwesome';
+import Ionicons from 'views/main/Ionicons';
+import Material from 'views/main/Material';
+import Typicons from 'views/main/Typicons';
+import GithubOcticons from 'views/main/GithubOcticons';
+import Feather from 'views/main/Feather';
+
+import { FiPackage, FiFile, FiImage } from 'react-icons/fi';
 
 const contextPath = '/main/';
 
@@ -21,7 +28,7 @@ const mainRoutes = [
     },
     {
         name: 'Components',
-        icon: Package,
+        icon: FiPackage,
         sidebar: true,
         subRoutes: [
             {
@@ -49,12 +56,6 @@ const mainRoutes = [
                 sidebar: true
             },
             {
-                path: contextPath + 'components/icons',
-                name: 'Icons',
-                component: Icons,
-                sidebar: true
-            },
-            {
                 path: contextPath + 'components/tables',
                 name: 'Tables',
                 component: Tables,
@@ -69,8 +70,51 @@ const mainRoutes = [
         ]
     },
     {
+        name: 'Icons',
+        icon: FiImage,
+        sidebar: true,
+        subRoutes: [
+            {
+                path: contextPath + 'icons/fontAwesome',
+                name: 'Font Awesome',
+                component: FontAwesome,
+                sidebar: true
+            },
+            {
+                path: contextPath + 'icons/ionicons',
+                name: 'Ionicons',
+                component: Ionicons,
+                sidebar: true
+            },
+            {
+                path: contextPath + 'icons/material',
+                name: 'Material',
+                component: Material,
+                sidebar: true
+            },
+            {
+                path: contextPath + 'icons/typicons',
+                name: 'Typicons',
+                component: Typicons,
+                sidebar: true
+            },
+            {
+                path: contextPath + 'icons/githubOcticons',
+                name: 'Github Octicons',
+                component: GithubOcticons,
+                sidebar: true
+            },
+            {
+                path: contextPath + 'icons/feather',
+                name: 'Feather',
+                component: Feather,
+                sidebar: true
+            }
+        ]
+    },
+    {
         name: 'Pages',
-        icon: File,
+        icon: FiFile,
         sidebar: true,
         subRoutes: [
             {

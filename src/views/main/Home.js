@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ContentRow from 'components/ContentRow';
 import ContentCol from 'components/ContentCol';
 import ContentCard from 'components/ContentCard';
 import { Table } from 'reactstrap';
 import { Line } from 'react-chartjs-2';
-import { Heart, Activity, User, Database } from 'react-feather';
+import { FiHeart, FiActivity, FiUser, FiDatabase } from 'react-icons/fi';
+import { loadingStart, loadingStop } from 'store/modules/loading';
 
 class Home extends Component {
+
+    componentDidMount() {
+        // this.props.dispatch(loadingStart());
+        // setTimeout(() => {
+        //     this.props.dispatch(loadingStop());
+        // }, 5000);
+    }
+
     render() {
         return (
             <div>
@@ -16,7 +26,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>9,482</span>
                             <span style={{fontSize:'1rem'}}>{' '}HITS</span>
                             <br/>
-                            <Heart size={19}/>{'  '}
+                            <FiHeart size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Today 
                             </span>
@@ -27,7 +37,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>940</span>
                             <span style={{fontSize:'1rem'}}>{' '}Users</span>
                             <br/>
-                            <User size={19}/>{'  '}
+                            <FiUser size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Welcome 
                             </span>
@@ -38,7 +48,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>50</span>
                             <span style={{fontSize:'1rem'}}>{' '}%</span>
                             <br/>
-                            <Activity size={19}/>{'  '}
+                            <FiActivity size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Progress 
                             </span>
@@ -49,7 +59,7 @@ class Home extends Component {
                             <span style={{fontSize:'1.5rem'}}>940</span>
                             <span style={{fontSize:'1rem'}}>{' '}KB</span>
                             <br/>
-                            <Database size={19}/>{'  '}
+                            <FiDatabase size={19}/>{'  '}
                             <span style={{fontSize:'1rem'}}>
                                 Database 
                             </span>
@@ -182,5 +192,5 @@ class Home extends Component {
         );
     }
 }
-
-export default Home;
+  
+export default connect(null)(Home);

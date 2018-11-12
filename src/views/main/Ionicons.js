@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import * as FeatherIcons from 'react-feather';
+import * as Ionicons from 'react-icons/io';
+
 import ContentCard from 'components/ContentCard';
 import ContentCol from 'components/ContentCol';
 import ContentRow from 'components/ContentRow';
 import _ from 'lodash';
 
-const FeatherIconComponent = ((props) => {
-    const FeatherIcon = FeatherIcons[props.icon];
+const IoniconComponent = ((props) => {
+    const Ionicon = Ionicons[props.icon];
     return (
-        <FeatherIcon />
+        <Ionicon size={25}/>
     )
 });
 
 class Icons extends Component {
     render() {
-        const featherIconList = _.sortBy(Object.keys(FeatherIcons));
+        const ioniconList = _.sortBy(Object.keys(Ionicons));
         return (
             <div>
-                <ContentCard title={'Feather Icons'}>
+
+                <ContentCard title={'Ionicons'}>
                     <ContentRow>
-                        {featherIconList.map((icon, key) => {
+                        {ioniconList.map((icon, key) => {
                             return (
                                 <ContentCol center xl={2} lg={2} xs={3} key={key}>
-                                    <FeatherIconComponent icon={icon} />
+                                    <IoniconComponent icon={icon} />
                                     <p style={{fontSize:'.9rem'}}>{icon}</p>
                                 </ContentCol>
                             )
