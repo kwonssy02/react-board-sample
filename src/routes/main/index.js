@@ -16,6 +16,8 @@ import GithubOcticons from 'views/main/GithubOcticons';
 import Feather from 'views/main/Feather';
 
 import { FiPackage, FiFile, FiImage } from 'react-icons/fi';
+import NoticeList from 'views/main/pages/NoticeList';
+import NoticeDetail from '../../views/main/pages/NoticeDetail';
 
 const contextPath = '/main/';
 
@@ -128,6 +130,18 @@ const mainRoutes = [
                 name: '404 Not Found',
                 component: () => <Redirect to="/notFound"/>,
                 sidebar: true
+            },
+            {
+                path: contextPath + 'pages/noticeList',
+                name: 'Notice',
+                component: NoticeList,
+                sidebar: true
+            },
+            {
+                path: contextPath + 'pages/noticeDetail/:id',
+                name: 'NoticeDetail',
+                component: NoticeDetail,
+                sidebar: false
             }
         ]
     }

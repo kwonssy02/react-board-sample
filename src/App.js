@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import LoadingScreen from 'react-loading-screen';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-table/react-table.css';
 import 'assets/css/style.scss';
 import ScrollToTop from 'utils/ScrollToTop';
 import AuthLayout from 'layouts/auth/AuthLayout';
