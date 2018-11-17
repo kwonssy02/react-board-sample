@@ -8,7 +8,8 @@ import ContentCol from 'components/ContentCol';
 
 class NotFound extends Component {
     goMainPage = () => {
-        this.props.history.push('/main');
+        // this.props.history.push('/main');
+        window.location.href = '/main';
     };
 
     render() {
