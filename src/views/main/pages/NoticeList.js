@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ContentCard from 'components/ContentCard';
 import ReactTable from 'react-table';
 import { withRouter } from 'react-router-dom';
+import ContentRow from 'components/ContentRow';
+import ContentCol from 'components/ContentCol';
+import { Button } from 'reactstrap';
 
 class NoticeList extends Component {
     
@@ -12,6 +15,10 @@ class NoticeList extends Component {
           pages: null,
           loading: true
         };
+    }
+
+    onClickWriteButton = () => {
+        this.props.history.push('/main/pages/noticeWrite');
     }
 
     fetchData = (state, instance) => {
@@ -80,7 +87,7 @@ class NoticeList extends Component {
                         getTdProps={(state, rowInfo, column, instance) => {
                             return {
                                 onClick: e => {
-                                    // this.props.history.push(`/main/pages/noticeDetail/${rowInfo.row.id}`);
+                                    this.props.history.push(`/main/pages/noticeDetail/${rowInfo.row.id}`);
                                     // alert(rowInfo.row.id);
                                     console.log("Cell - onMouseEnter", {
                                         state,
@@ -102,6 +109,11 @@ class NoticeList extends Component {
                         className="-striped -highlight"
                     />
                 </ContentCard>
+                <ContentRow>
+                    <ContentCol>
+                        <Button color="primary" onClick={this.onClickWriteButton}>Write</Button>
+                    </ContentCol>
+                </ContentRow>
             </div>
         );
     }

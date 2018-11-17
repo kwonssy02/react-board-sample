@@ -18,6 +18,7 @@ import Feather from 'views/main/Feather';
 import { FiPackage, FiFile, FiImage } from 'react-icons/fi';
 import NoticeList from 'views/main/pages/NoticeList';
 import NoticeDetail from '../../views/main/pages/NoticeDetail';
+import NoticeWrite from '../../views/main/pages/NoticeWrite';
 
 const contextPath = '/main/';
 
@@ -141,6 +142,12 @@ const mainRoutes = [
                 path: contextPath + 'pages/noticeDetail/:id',
                 name: 'NoticeDetail',
                 component: NoticeDetail,
+                sidebar: false
+            },
+            {
+                path: contextPath + 'pages/noticeWrite',
+                name: 'NoticeWrite',
+                component: NoticeWrite,
                 sidebar: false
             }
         ]

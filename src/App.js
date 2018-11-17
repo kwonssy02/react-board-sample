@@ -22,6 +22,10 @@ class App extends Component {
         }
     }
 
+    requireAuth = () => {
+        alert('a');
+    }
+
     render() {    
         const { isLoading } = this.props;
         return (
@@ -33,7 +37,7 @@ class App extends Component {
                                 <Redirect from="/" to="/main/home"/>
                             }/> */}
                             <PrivateRoute exact path="/"/>
-                            <Route path="/main" component={MainLayout} />
+                            <Route path="/main" component={MainLayout} onEnter={this.requireAuth}/>
                             <Route path="/auth" component={AuthLayout} />
                             <Route component={NotFound} />
                         </Switch>
