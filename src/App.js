@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import LoadingScreen from 'react-loading-screen';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-table/react-table.css';
+import 'react-quill/dist/quill.snow.css';
 import 'assets/css/style.scss';
 import ScrollToTop from 'utils/ScrollToTop';
 import AuthLayout from 'layouts/auth/AuthLayout';
@@ -22,10 +23,6 @@ class App extends Component {
         }
     }
 
-    requireAuth = () => {
-        alert('a');
-    }
-
     render() {    
         const { isLoading } = this.props;
         return (
@@ -37,7 +34,7 @@ class App extends Component {
                                 <Redirect from="/" to="/main/home"/>
                             }/> */}
                             <PrivateRoute exact path="/"/>
-                            <Route path="/main" component={MainLayout} onEnter={this.requireAuth}/>
+                            <Route path="/main" component={MainLayout} />
                             <Route path="/auth" component={AuthLayout} />
                             <Route component={NotFound} />
                         </Switch>
