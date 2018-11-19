@@ -205,7 +205,7 @@ class MainLayout extends Component {
                 {/* Content */}
                 <div id="content" className={active ? 'active' : null}>
                     {/* Inner Content */}
-                    <div id="innerContent" style={{padding:'2rem'}}>
+                    <div id="innerContent">
                         <Switch>
                             {mainRoutes.map((route, key) => {
                                 if(route.subRoutes) {

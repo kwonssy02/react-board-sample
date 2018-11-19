@@ -65,55 +65,59 @@ class NoticeList extends Component {
         return (
             <div>
                 <ContentCard title='Notice List'>
-                    <ReactTable
-                        columns={[
-                            {
-                                Header: "ID",
-                                accessor: "id",
-                                width:100,
-                                style: {
-                                    textAlign:'center'
-                                }
-                            },
-                            {
-                                Header: "First Name",
-                                accessor: "first_name"
-                            },
-                            {
-                                Header: "Last Name",
-                                accessor: "last_name"
-                            }
-                        ]}
-                        getTdProps={(state, rowInfo, column, instance) => {
-                            return {
-                                onClick: e => {
-                                    this.props.history.push(`/main/pages/noticeDetail/${rowInfo.row.id}`);
-                                    // alert(rowInfo.row.id);
-                                    console.log("Cell - onMouseEnter", {
-                                        state,
-                                        rowInfo,
-                                        column,
-                                        instance,
-                                        event: e
-                                    });
-                                }
-                            };
-                        }}
-                        manual // Forces table not to paginate or sort automatically, so we can handle it server-side
-                        data={data}
-                        pages={pages} // Display the total number of pages
-                        loading={loading} // Display the loading overlay when we need it
-                        onFetchData={this.fetchData} // Request new data when things change
-                        filterable
-                        defaultPageSize={10}
-                        className="-striped -highlight"
-                    />
+                    <ContentRow>
+                        <ContentCol>
+                            <ReactTable
+                                columns={[
+                                    {
+                                        Header: "ID",
+                                        accessor: "id",
+                                        width:100,
+                                        style: {
+                                            textAlign:'center'
+                                        }
+                                    },
+                                    {
+                                        Header: "First Name",
+                                        accessor: "first_name"
+                                    },
+                                    {
+                                        Header: "Last Name",
+                                        accessor: "last_name"
+                                    }
+                                ]}
+                                getTdProps={(state, rowInfo, column, instance) => {
+                                    return {
+                                        onClick: e => {
+                                            this.props.history.push(`/main/pages/noticeDetail/${rowInfo.row.id}`);
+                                            
+                                            // console.log("Cell - onMouseEnter", {
+                                            //     state,
+                                            //     rowInfo,
+                                            //     column,
+                                            //     instance,
+                                            //     event: e
+                                            // });
+                                        }
+                                    };
+                                }}
+                                manual // Forces table not to paginate or sort automatically, so we can handle it server-side
+                                data={data}
+                                pages={pages} // Display the total number of pages
+                                loading={loading} // Display the loading overlay when we need it
+                                onFetchData={this.fetchData} // Request new data when things change
+                                filterable
+                                defaultPageSize={10}
+                                className="-striped -highlight"
+                            />
+                        </ContentCol>
+                    </ContentRow>
+                    <ContentRow>
+                        <ContentCol>
+                            <Button color="primary" onClick={this.onClickWriteButton}>Write</Button>
+                        </ContentCol>
+                    </ContentRow>
                 </ContentCard>
-                <ContentRow>
-                    <ContentCol>
-                        <Button color="primary" onClick={this.onClickWriteButton}>Write</Button>
-                    </ContentCol>
-                </ContentRow>
             </div>
         );
     }
