@@ -19,6 +19,7 @@ import { FiPackage, FiFile, FiImage } from 'react-icons/fi';
 import NoticeList from 'views/main/pages/NoticeList';
 import NoticeDetail from '../../views/main/pages/NoticeDetail';
 import NoticeWrite from '../../views/main/pages/NoticeWrite';
+import DropZone from '../../views/main/pages/DropZone';
 
 const contextPath = '/main/';
 
@@ -149,6 +150,12 @@ const mainRoutes = [
                 name: 'NoticeWrite',
                 component: NoticeWrite,
                 sidebar: false
+            },
+            {
+                path: contextPath + 'pages/dropZone',
+                name: 'Dropzone',
+                component: DropZone,
+                sidebar: true
             }
         ]
     }
