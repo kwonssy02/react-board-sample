@@ -15,11 +15,23 @@ export default class DropZone extends Component {
 
     onDropAccepted = (acceptedFiles) => {
         var msg = '';
-        acceptedFiles.map(file => {
+        let formData = new FormData();
+        acceptedFiles.map((file, i) => {
             msg += file.name + '\n';
+            formData.append('sourceFile', file);
         });
         msg += 'accepted';
         alert(msg);
+        console.log(formData);
+
+        fetch(`http://localhost:8080/api/file`, {
+            method: 'POST',
+            body: formData
+          })
+          .then(res => res.json())
+          .then(images => {
+            console.log(images);
+          })
     }
 
     onDropRejected = (rejectedFiles) => {
